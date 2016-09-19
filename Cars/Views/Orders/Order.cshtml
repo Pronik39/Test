@@ -1,0 +1,32 @@
+﻿@model Cars.Models.Order
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Order</h2>
+
+
+<form method="post" action="/Orders/Save">
+
+    <input type="hidden" value="@Model.CarID" name="CarID" />
+
+    <input type="hidden" value="@Model.ID" name="ID" />
+
+    <input type="text" value="@Model.Date" name="Date" />
+
+    <input type="text" value="@Model.OrderAmount" name="OrderAmount" />
+
+    <select name="Status">
+
+        <option @(Model.Status == Cars.Models.OrderStatus.Completed ? "selected" : "") value="0">Completed</option>
+        <option @(Model.Status == Cars.Models.OrderStatus.InProgress ? "selected" : "") value="1">In Progress</option>
+        <option @(Model.Status == Cars.Models.OrderStatus.Cancelled ? "selected" : "") value="2">Cancelled</option>
+    </select>
+
+    <input type="submit" value="Save" />
+</form>
+
+
+
+

@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model IList<Cars.Models.Order>
+<h2>Index</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Order Amount
+            </th>
+            <th>
+                Order Status
+            </th>
+
+        </tr>
+    </thead>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>
+                @order.ID
+            </td>
+            <td>
+                @order.Date
+            </td>
+            <td>
+                @order.OrderAmount
+            </td>
+            <td>
+                @order.Status
+            </td>
+
+            <td>
+                <a href="/Orders/Order/@order.ID">
+                    Edit
+                </a>
+            </td>
+
+            <td>
+                <a href="/Orders/Delete/@order.ID">
+                    delete
+                </a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+<p>
+    Add Order
+</p>
+<form method="post" action="/Orders/Create">
+    <input type="hidden" value="@ViewBag.CarID" name="CarID" />
+    <input type="text" value="OrderAmount" name="OrderAmount" />
+    <select name="Status">
+    <option  value="0">Completed</option>
+    <option  selected value="1">In Progress</option>
+    <option  value="2">Cancelled</option>
+    </select>
+    <input type="submit" value="Save" />
+</form>

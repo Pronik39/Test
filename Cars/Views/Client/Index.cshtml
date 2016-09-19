@@ -1,0 +1,85 @@
+﻿@model Cars.Models.Client
+
+@{
+    //ViewBag.Title = "Client";
+}
+
+<h2>Client</h2>
+<form method="post" action="/Client/Save">
+    <input type="hidden" value="@Model.ID" name="ID" />
+    <input type="text" value="@Model.FirstName" name="FirstName" />
+    <input type="text" value="@Model.LastName" name="LastName" />
+    <input type="number" value="@Model.DateOfBirthday" name="DateOfBirthday" />
+    <input type="text" value="@Model.Address" name="Address" />
+    <input type="number" value="@Model.Phone" name="Phone" />
+    <input type="email" value="@Model.Email" name="Email" />
+    <input type="submit" value="save" />
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Make
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                VIN
+            </th>
+        </tr>
+    </thead>
+    @foreach (var car in Model.Cars)
+    {
+        <tr>
+            <td>
+                @car.ID
+            </td>
+            <td>
+                @car.Make
+            </td>
+            <td>
+                @car.Model
+            </td>
+            <td>
+                @car.Year
+            </td>
+            <td>
+                @car.VIN
+            </td>
+
+            <td>
+                <a href="/Orders/Index/@car.ID">
+                    Orders
+                </a>
+            </td>
+
+            <td>
+                <a href="/Client/DeleteCar?carID=@car.ID&clientID=@Model.ID">
+                    delete
+                </a>
+            </td>
+            
+        </tr>
+    }
+</table>
+
+<p>
+    Add New Car
+</p>
+
+<form method="post" action="/Client/CreateCar">
+    <input type="hidden" value="@Model.ID" name="ClientID" />
+    <input type="text" value="Make" name="Make" />
+    <input type="text" value="Model" name="Model" />
+    <input type="text" value="Year" name="Year" />
+    <input type="text" value="VIN" name="VIN" />
+    <input type="submit" value="Save"/>
+</form>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model bool
+
+
+<h2>Login</h2>
+<form method="post" action="/Login/Login">
+    Password
+    <input type="password" name="password"/>
+    <input type="submit"/>
+</form>
+
+@if (Model) 
+{ 
+<p class="error">
+    invalid password 
+</p>
+}
