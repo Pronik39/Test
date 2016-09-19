@@ -7,12 +7,31 @@
 <h2>Client</h2>
 <form method="post" action="/Client/Save">
     <input type="hidden" value="@Model.ID" name="ID" />
-    <input type="text" value="@Model.FirstName" name="FirstName" />
-    <input type="text" value="@Model.LastName" name="LastName" />
-    <input type="number" value="@Model.DateOfBirthday" name="DateOfBirthday" />
-    <input type="text" value="@Model.Address" name="Address" />
-    <input type="number" value="@Model.Phone" name="Phone" />
-    <input type="email" value="@Model.Email" name="Email" />
+    <p>
+        First Name <br />
+        <input type="text" value="@Model.FirstName" name="FirstName" />
+    </p>
+    <p>
+        LastName <br />
+        <input type="text" value="@Model.LastName" name="LastName" />
+    </p>
+    <p>
+        DateOfBirthday <br />
+        <input type="text" value="@Model.DateOfBirthday" name="DateOfBirthday" />
+    </p>
+    <p>
+        Address <br />
+        <input type="text" value="@Model.Address" name="Address" />
+    </p>
+    <p>
+        Phone <br />
+        <input type="text" value="@Model.Phone" name="Phone" />
+    </p>
+    <p>
+        Email <br />
+        <input type="email" value="@Model.Email" name="Email" />
+    </p>
+
     <input type="submit" value="save" />
 </form>
 
@@ -66,7 +85,7 @@
                     delete
                 </a>
             </td>
-            
+
         </tr>
     }
 </table>
@@ -81,5 +100,5 @@
     <input type="text" value="Model" name="Model" />
     <input type="text" value="Year" name="Year" />
     <input type="text" value="VIN" name="VIN" />
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Save" />
 </form>
